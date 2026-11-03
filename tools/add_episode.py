@@ -26,6 +26,7 @@ CHANNEL = {
     "title": "Hashimiya Lectures in English",
     "author": "Shaykh Abd al-Kabir al-Balghithi (unofficial English narration)",
     "owner_name": "Fardeem",
+    "owner_email": "",  # set to a real address only if submitting to the Apple Podcasts directory (it becomes public)
     "summary": (
         "Unofficial English translations and narrations of the lessons of Shaykh (Sidi Mawlay) "
         "Abd al-Kabir al-Balghithi of the Hashimiyya-Habibiyya Darqawiyya-Shadhiliyya order, "
@@ -111,7 +112,7 @@ def build_feed(eps):
     <itunes:summary>{escape(c['summary'])}</itunes:summary>
     <itunes:owner>
       <itunes:name>{escape(c['owner_name'])}</itunes:name>
-    </itunes:owner>
+{('      <itunes:email>' + escape(c['owner_email']) + '</itunes:email>' + chr(10)) if c['owner_email'] else ''}    </itunes:owner>
     <itunes:image href="{SITE}/cover.png"/>
     <itunes:category text="Religion &amp; Spirituality">
       <itunes:category text="Islam"/>
